@@ -16,7 +16,7 @@
 #include "open3d/geometry/PointCloud.h"
 #include "open3d/geometry/VoxelGrid.h"
 #include "open3d/io/PointCloudIO.h"
-#include "open3d/visualization/utility/DrawGeometry.h"
+//#include "open3d/visualization/utility/DrawGeometry.h"
 #include "tests/Tests.h"
 
 namespace open3d {

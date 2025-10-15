@@ -70,7 +70,10 @@ add_subdirectory(t/geometry)
 add_subdirectory(t/io)
 add_subdirectory(t/pipelines)
 add_subdirectory(utility)
-add_subdirectory(visualization)
+
+if (BUILD_VISUALIZATION)
+    add_subdirectory(visualization)
+endif()
 
 if (BUILD_GUI)
     add_subdirectory(visualization/gui)
@@ -101,9 +104,14 @@ open3d_ispc_target_sources_TARGET_OBJECTS(Open3D PRIVATE
     tpipelines
     tpipelines_kernel
     utility
-    visualization
-    visualization_impl
 )
+
+if (BUILD_VISUALIZATION)
+    open3d_ispc_target_sources_TARGET_OBJECTS(Open3D PRIVATE
+        visualization
+        visualization_impl
+    )
+endif()
 
 if (BUILD_GUI)
     open3d_ispc_target_sources_TARGET_OBJECTS(Open3D PRIVATE
@@ -129,7 +137,10 @@ add_source_group(ml)
 add_source_group(pipelines)
 add_source_group(tpipelines)
 add_source_group(utility)
-add_source_group(visualization)
+
+if(BUILD_VISUALIZATION)
+    add_source_group(visualization)
+endif()
 
 open3d_show_and_abort_on_warning(Open3D)
 open3d_set_global_properties(Open3D)

@@ -97,6 +97,8 @@
 #include "open3d/utility/ProgressReporters.h"
 #include "open3d/utility/Random.h"
 #include "open3d/utility/Timer.h"
+#ifdef BUILD_VISUALIZATION
+#ifdef BUILD_GUI
 #include "open3d/visualization/gui/Application.h"
 #include "open3d/visualization/gui/Button.h"
 #include "open3d/visualization/gui/Checkbox.h"
@@ -117,6 +119,7 @@
 #include "open3d/visualization/gui/ToggleSwitch.h"
 #include "open3d/visualization/gui/TreeView.h"
 #include "open3d/visualization/gui/Window.h"
+#endif
 #include "open3d/visualization/rendering/Material.h"
 #include "open3d/visualization/rendering/Model.h"
 #include "open3d/visualization/rendering/Open3DScene.h"
@@ -133,6 +136,7 @@
 #include "open3d/visualization/visualizer/VisualizerWithEditing.h"
 #include "open3d/visualization/visualizer/VisualizerWithKeyCallback.h"
 #include "open3d/visualization/visualizer/VisualizerWithVertexSelection.h"
+#endif
 
 // clang-format off
 @BUILD_AZURE_KINECT_COMMENT@#include "open3d/io/sensor/azure_kinect/AzureKinectRecorder.h"
