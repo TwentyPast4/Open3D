@@ -38,6 +38,7 @@ option(BUILD_SHARED_LIBS          "Build shared libraries"                      
 option(BUILD_EXAMPLES             "Build Open3D examples programs"                  ON )
 option(BUILD_UNIT_TESTS           "Build Open3D unit tests"                         OFF)
 option(BUILD_TOOLS                "Build Open3D tools"                              ON)
+option(BUILD_APPS                 "Build Open3D apps"                               ON)
 option(BUILD_BENCHMARKS           "Build the micro benchmarks"                      OFF)
 option(BUILD_PYTHON_MODULE        "Build the python module"                         ON )
 option(BUILD_CUDA_MODULE          "Build the CUDA module"                           OFF)
