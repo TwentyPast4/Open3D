@@ -1190,8 +1190,19 @@ if (BUILD_BENCHMARKS)
     # benchmark and benchmark_main will automatically become available.
 endif()
 
+if(BUILD_VISUALIZATION)
+    # Include visualization headers
+    set(BUILD_VIS_COMMENT "")
+else()
+    # Do not include visualization headers
+    set(BUILD_VIS_COMMENT "//")
+endif()
+
 # imgui
 if(BUILD_GUI)
+    # Include gui headers
+    set(BUILD_GUI_COMMENT "")
+
     if(USE_SYSTEM_IMGUI)
         open3d_find_package_3rdparty_library(3rdparty_imgui
             PACKAGE ImGui
@@ -1417,6 +1428,9 @@ if(BUILD_GUI)
     else()
         list(APPEND Open3D_3RDPARTY_HEADER_TARGETS_FROM_SYSTEM Open3D::3rdparty_filament)
     endif() # if(NOT USE_SYSTEM_FILAMENT)
+else()
+    # Do not include gui headers
+    set(BUILD_GUI_COMMENT "//")
 endif()
 
 # Headless rendering

@@ -1,5 +1,10 @@
 open3d_ispc_add_library(visualization OBJECT)
 
+target_sources(visualization PRIVATE
+        rendering/Material.cpp  # For RPC serialization
+)
+
+if(BUILD_VISUALIZATION)
 open3d_ispc_add_library(visualization_impl OBJECT)
 set_target_properties(visualization_impl PROPERTIES CXX_VISIBILITY_PRESET hidden)
 
@@ -43,10 +48,6 @@ target_sources(visualization PRIVATE
     visualizer/VisualizerWithEditing.cpp
     visualizer/VisualizerWithKeyCallback.cpp
     visualizer/VisualizerWithVertexSelection.cpp
-)
-
-target_sources(visualization PRIVATE
-    rendering/Material.cpp  # For RPC serialization
 )
 
 if (BUILD_GUI)
@@ -137,12 +138,6 @@ add_source_group(shader/glsl)
 
 add_dependencies(visualization_impl shader)
 
-
-open3d_show_and_abort_on_warning(visualization)
-open3d_set_global_properties(visualization)
-open3d_set_open3d_lib_properties(visualization)
-open3d_link_3rdparty_libraries(visualization)
-
 open3d_show_and_abort_on_warning(visualization_impl)
 open3d_set_global_properties(visualization_impl)
 open3d_set_open3d_lib_properties(visualization_impl)
@@ -152,3 +147,10 @@ open3d_link_3rdparty_libraries(visualization_impl)
 if (BUILD_GUI)
     set(GUI_RESOURCE_DIR ${GUI_RESOURCE_DIR} PARENT_SCOPE)
 endif()
+
+endif()
+
+open3d_show_and_abort_on_warning(visualization)
+open3d_set_global_properties(visualization)
+open3d_set_open3d_lib_properties(visualization)
+open3d_link_3rdparty_libraries(visualization)

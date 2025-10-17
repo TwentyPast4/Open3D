@@ -70,10 +70,7 @@ add_subdirectory(t/geometry)
 add_subdirectory(t/io)
 add_subdirectory(t/pipelines)
 add_subdirectory(utility)
-
-if (BUILD_VISUALIZATION)
-    add_subdirectory(visualization)
-endif()
+add_subdirectory(visualization)
 
 if (BUILD_GUI)
     add_subdirectory(visualization/gui)
@@ -137,10 +134,7 @@ add_source_group(ml)
 add_source_group(pipelines)
 add_source_group(tpipelines)
 add_source_group(utility)
-
-if(BUILD_VISUALIZATION)
-    add_source_group(visualization)
-endif()
+add_source_group(visualization)
 
 open3d_show_and_abort_on_warning(Open3D)
 open3d_set_global_properties(Open3D)

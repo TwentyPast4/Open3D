@@ -18,6 +18,7 @@
 #include "open3d/t/geometry/DrawableGeometry.h"
 #include "open3d/t/geometry/Geometry.h"
 #include "open3d/t/geometry/TensorMap.h"
+#include "open3d/t/geometry/Image.h"
 #include "open3d/visualization/rendering/Model.h"
 
 namespace open3d {

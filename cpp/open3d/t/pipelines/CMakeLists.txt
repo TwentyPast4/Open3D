@@ -15,8 +15,13 @@ target_sources(tpipelines PRIVATE
 target_sources(tpipelines PRIVATE
     slac/ControlGrid.cpp
     slac/SLACOptimizer.cpp
-    slac/Visualization.cpp
 )
+
+if(BUILD_VISUALIZATION)
+    target_sources(tpipelines PRIVATE
+            slac/Visualization.cpp
+    )
+endif()
 
 target_sources(tpipelines PRIVATE
     slam/Model.cpp

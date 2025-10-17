@@ -12,10 +12,7 @@ add_subdirectory(t/io)
 add_subdirectory(t/pipelines)
 add_subdirectory(test_utility)
 add_subdirectory(utility)
-
-if(BUILD_VISUALIZATION)
-    add_subdirectory(visualization)
-endif()
+add_subdirectory(visualization)
 
 target_sources(tests PRIVATE
     Main.cpp

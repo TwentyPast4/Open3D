@@ -20,10 +20,7 @@ add_subdirectory(t/geometry)
 add_subdirectory(t/io)
 add_subdirectory(t/pipelines)
 add_subdirectory(utility)
-
-if(BUILD_VISUALIZATION)
-    add_subdirectory(visualization)
-endif()
+add_subdirectory(visualization)
 
 target_sources(pybind PRIVATE
     docstring.cpp
