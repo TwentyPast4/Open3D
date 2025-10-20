@@ -103,9 +103,12 @@ open3d_ispc_target_sources_TARGET_OBJECTS(Open3D PRIVATE
     utility
 )
 
+open3d_ispc_target_sources_TARGET_OBJECTS(Open3D PRIVATE
+        visualization
+)
+
 if (BUILD_VISUALIZATION)
     open3d_ispc_target_sources_TARGET_OBJECTS(Open3D PRIVATE
-        visualization
         visualization_impl
     )
 endif()
