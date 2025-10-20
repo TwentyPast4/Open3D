@@ -4,7 +4,6 @@ target_sources(utility PRIVATE
     CompilerInfo.cpp
     Console.cpp
     CPUInfo.cpp
-    Download.cpp
     Eigen.cpp
     Extract.cpp
     ExtractZIP.cpp
@@ -18,6 +17,12 @@ target_sources(utility PRIVATE
     Random.cpp
     Timer.cpp
 )
+
+if (BUILD_DOWNLOAD_UTILITIES)
+    target_sources(utility PRIVATE
+            Download.cpp
+    )
+endif()
 
 if (BUILD_ISPC_MODULE)
     target_sources(utility PRIVATE

@@ -9,7 +9,9 @@
 
 #include <string>
 
+#ifdef BUILD_DOWNLOAD_UTILITIES
 #include "open3d/utility/Download.h"
+#endif
 #include "open3d/utility/Extract.h"
 #include "open3d/utility/FileSystem.h"
 #include "open3d/utility/Logging.h"
@@ -62,6 +64,7 @@ void Dataset::CheckPathsExist(const std::vector<std::string>& paths) const {
     }
 }
 
+#ifdef BUILD_DOWNLOAD_UTILITIES
 DownloadDataset::DownloadDataset(const std::string& prefix,
                                  const DataDescriptor& data_descriptor,
                                  const std::string& data_root)
@@ -136,6 +139,7 @@ bool DownloadDataset::HasDownloaded(
     }
     return true;
 }
+#endif
 
 }  // namespace data
 }  // namespace open3d

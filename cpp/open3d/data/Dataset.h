@@ -138,6 +138,7 @@ struct DataDescriptor {
     std::string extract_in_subdir_ = "";
 };
 
+#ifdef BUILD_DOWNLOAD_UTILITIES
 /// \class DownloadDataset
 /// \brief Dataset class with one or more downloaded file.
 ///
@@ -1264,6 +1265,7 @@ private:
     /// Map to path for the available filenames.
     std::unordered_map<std::string, std::string> map_filename_to_path_;
 };
+#endif
 
 }  // namespace data
 }  // namespace open3d
