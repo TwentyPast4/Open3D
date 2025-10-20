@@ -11,6 +11,7 @@
 #include "open3d/core/TensorCheck.h"
 #include "open3d/core/nns/NearestNeighborSearch.h"
 #include "open3d/io/PointCloudIO.h"
+#include "open3d/t/pipelines/kernel/TransformationConverter.h"
 #include "open3d/t/pipelines/slac/FillInLinearSystemImpl.h"
 #include "open3d/utility/FileSystem.h"
 
@@ -192,11 +193,13 @@ static core::Tensor GetCorrespondenceSetForPointCloudPair(
                       inlier_ratio);
 
     if (j != i + 1 && inlier_ratio < fitness_threshold) {
+#ifdef BUILD_VISUALIZATION
         if (debug) {
             VisualizePointCloudCorrespondences(
                     tpcd_i, tpcd_j, correspondence_set,
                     T_j.Inverse().Matmul(T_i).To(device, dtype));
         }
+#endif
         return core::Tensor();
     }
 

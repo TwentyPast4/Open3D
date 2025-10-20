@@ -12,7 +12,9 @@
 
 #include "open3d/pipelines/registration/PoseGraph.h"
 #include "open3d/t/pipelines/slac/ControlGrid.h"
+#ifdef BUILD_VISUALIZATION
 #include "open3d/t/pipelines/slac/Visualization.h"
+#endif
 
 namespace open3d {
 namespace t {

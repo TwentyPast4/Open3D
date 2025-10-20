@@ -91,11 +91,12 @@ void FillInRigidAlignmentTerm(Tensor& AtA,
         FillInRigidAlignmentTerm(AtA, Atb, residual, tpcd_i_indexed,
                                  tpcd_j_indexed, Ti, Tj, i, j,
                                  params.distance_threshold_);
-
+#ifdef BUILD_VISUALIZATION
         if (debug_option.debug_ && i >= debug_option.debug_start_node_idx_) {
             VisualizePointCloudCorrespondences(tpcd_i, tpcd_j, corres_ij,
                                                Tj.Inverse().Matmul(Ti));
         }
+#endif
     }
 }
 
@@ -202,13 +203,14 @@ void FillInSLACAlignmentTerm(Tensor& AtA,
         FillInSLACAlignmentTerm(AtA, Atb, residual, ctr_grid, tpcd_param_i,
                                 tpcd_param_j, Ti, Tj, i, j, n_frags,
                                 params.distance_threshold_);
-
+#ifdef BUILD_VISUALIZATION
         if (debug_option.debug_ && i >= debug_option.debug_start_node_idx_) {
             VisualizePointCloudCorrespondences(tpcd_i, tpcd_j, corres_ij,
                                                Tj.Inverse().Matmul(Ti));
             VisualizePointCloudEmbedding(tpcd_param_i, ctr_grid);
             VisualizePointCloudDeformation(tpcd_param_i, ctr_grid);
         }
+#endif
     }
 }
 
@@ -230,9 +232,11 @@ void FillInSLACRegularizerTerm(Tensor& AtA,
                                       positions_curr,
                                       n_frags * params.regularizer_weight_,
                                       n_frags, ctr_grid.GetAnchorIdx());
+#ifdef BUILD_VISUALIZATION
     if (debug_option.debug_) {
         VisualizeGridDeformation(ctr_grid);
     }
+#endif
 }
 
 }  // namespace slac

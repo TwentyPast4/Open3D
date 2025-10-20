@@ -11,7 +11,6 @@
 #include "open3d/core/Tensor.h"
 #include "open3d/data/Dataset.h"
 #include "open3d/t/io/PointCloudIO.h"
-#include "open3d/t/pipelines/slac/Visualization.h"
 #include "tests/Tests.h"
 
 namespace open3d {
