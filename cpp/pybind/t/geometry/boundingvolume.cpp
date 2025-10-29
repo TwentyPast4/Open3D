@@ -146,6 +146,10 @@ The scaling center will be the box center if it is not specified.)",
     aabb.def("get_point_indices_within_bounding_box",
              &AxisAlignedBoundingBox::GetPointIndicesWithinBoundingBox,
              "Indices to points that are within the bounding box.", "points"_a);
+    aabb.def("get_point_mask_within_bounding_box",
+             &AxisAlignedBoundingBox::GetPointMaskWithinBoundingBox,
+             "Boolean mask of points that are within the bounding box.",
+             "points"_a);
 
     aabb.def("to_legacy", &AxisAlignedBoundingBox::ToLegacy,
              "Convert to a legacy Open3D axis-aligned box.");
@@ -301,6 +305,10 @@ The scaling center will be the box center if it is not specified.)",
     obb.def("get_point_indices_within_bounding_box",
             &OrientedBoundingBox::GetPointIndicesWithinBoundingBox,
             "Indices to points that are within the bounding box.", "points"_a);
+    obb.def("get_point_mask_within_bounding_box",
+            &OrientedBoundingBox::GetPointMaskWithinBoundingBox,
+            "Boolean mask to points that are within the bounding box.",
+            "points"_a);
     obb.def("get_axis_aligned_bounding_box",
             &OrientedBoundingBox::GetAxisAlignedBoundingBox,
             " Returns an oriented bounding box from the "

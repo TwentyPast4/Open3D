@@ -209,6 +209,11 @@ core::Tensor AxisAlignedBoundingBox::GetBoxPoints() const {
 
 core::Tensor AxisAlignedBoundingBox::GetPointIndicesWithinBoundingBox(
         const core::Tensor &points) const {
+    return GetPointMaskWithinBoundingBox(points).NonZero().Flatten();
+}
+
+core::Tensor AxisAlignedBoundingBox::GetPointMaskWithinBoundingBox(
+        const core::Tensor &points) const {
     core::AssertTensorDevice(points, GetDevice());
     core::AssertTensorShape(points, {utility::nullopt, 3});
     core::AssertTensorDtypes(points, {core::Float32, core::Float64});
@@ -220,7 +225,7 @@ core::Tensor AxisAlignedBoundingBox::GetPointIndicesWithinBoundingBox(
             points, min_bound_.To(points.GetDtype()),
             max_bound_.To(points.GetDtype()), mask);
 
-    return mask.NonZero().Flatten();
+    return mask;
 }
 
 std::string AxisAlignedBoundingBox::ToString() const {
@@ -493,6 +498,11 @@ OrientedBoundingBox &OrientedBoundingBox::Scale(
 
 core::Tensor OrientedBoundingBox::GetPointIndicesWithinBoundingBox(
         const core::Tensor &points) const {
+    return GetPointMaskWithinBoundingBox(points).NonZero().Flatten();
+}
+
+core::Tensor OrientedBoundingBox::GetPointMaskWithinBoundingBox(
+        const core::Tensor &points) const {
     core::AssertTensorDevice(points, GetDevice());
     core::AssertTensorShape(points, {utility::nullopt, 3});
     core::AssertTensorDtypes(points, {core::Float32, core::Float64});
@@ -505,7 +515,7 @@ core::Tensor OrientedBoundingBox::GetPointIndicesWithinBoundingBox(
             rotation_.To(points.GetDtype()), extent_.To(points.GetDtype()),
             mask);
 
-    return mask.NonZero().Flatten();
+    return mask;
 }
 
 std::string OrientedBoundingBox::ToString() const {

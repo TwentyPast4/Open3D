@@ -190,6 +190,12 @@ public:
     core::Tensor GetPointIndicesWithinBoundingBox(
             const core::Tensor &points) const;
 
+    /// \brief Mask of points that are within the bounding box.
+    ///
+    /// \param points Tensor with {N, 3} shape, and type float32 or float64.
+    core::Tensor GetPointMaskWithinBoundingBox(
+            const core::Tensor &points) const;
+
     /// Text description.
     std::string ToString() const;
 
@@ -414,6 +420,12 @@ public:
     ///
     /// \param points Tensor with {N, 3} shape, and type float32 or float64.
     core::Tensor GetPointIndicesWithinBoundingBox(
+            const core::Tensor &points) const;
+
+    /// \brief Mask of points that are within the bounding box.
+    ///
+    /// \param points Tensor with {N, 3} shape, and type float32 or float64.
+    core::Tensor GetPointMaskWithinBoundingBox(
             const core::Tensor &points) const;
 
     /// Text description.
